@@ -39,41 +39,14 @@ housing = load_housing_data()
 housing.head() # 데이터의 처음 5행 확인
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/1.JPG)
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/airplane.jpg)
-![title](assets/img/hands_on_ml/ch2/1.png)
-![handson_ml_ch02_01.png](/assets/img/1.png)
-
-![Image Alt 텍스트]({{site.url}}/assets/img/1.png)
-
-![Image Alt 텍스트](https://uncoded9.github.io/assets/img/1.png)
-
-![Image Alt 텍스트](https://uncoded9.github.io/assets/img/airplane.jpg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_01.jpg)
 
 
 ```python
-housing.info()
+housing.info() #데이터에 대한 간략한 설명
 ```
 
-    <class 'pandas.core.frame.DataFrame'>
-    RangeIndex: 20640 entries, 0 to 20639
-    Data columns (total 10 columns):
-     #   Column              Non-Null Count  Dtype  
-    ---  ------              --------------  -----  
-     0   longitude           20640 non-null  float64
-     1   latitude            20640 non-null  float64
-     2   housing_median_age  20640 non-null  float64
-     3   total_rooms         20640 non-null  float64
-     4   total_bedrooms      20433 non-null  float64
-     5   population          20640 non-null  float64
-     6   households          20640 non-null  float64
-     7   median_income       20640 non-null  float64
-     8   median_house_value  20640 non-null  float64
-     9   ocean_proximity     20640 non-null  object 
-    dtypes: float64(9), object(1)
-    memory usage: 1.6+ MB
-    
-
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_02.jpg)
 
 ```python
 housing["ocean_proximity"].value_counts()
