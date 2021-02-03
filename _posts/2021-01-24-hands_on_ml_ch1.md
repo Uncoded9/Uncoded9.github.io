@@ -2,8 +2,8 @@
 title: Chapter 1
 layout: post
 categories: [ML, Python]
-image: /assets/img/logo.jpg
-description: "Welcome to Hands on ML"
+image: /assets/img/hands_on_ml/idea_sketch.jpg
+description: "[Hands on ML] Chapter 1. 한눈에 보는 머신러닝"
 ---
 
 ## 1. 머신러닝이란?

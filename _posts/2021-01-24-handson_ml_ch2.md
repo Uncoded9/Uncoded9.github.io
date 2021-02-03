@@ -3,7 +3,7 @@ title: Chapter 2
 layout: post
 categories: [ML, Python]
 image: /assets/img/hands_on_ml/idea_sketch.jpg
-description: "Welcome to Hands on ML chapter 2"
+description: "[Hands on ML] Chapter 2. 머신러닝 프로젝트 처음부터 끝까지"
 ---
 
 ## 1. 데이터 다운로드
