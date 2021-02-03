@@ -42,7 +42,6 @@ housing.head() # 데이터의 처음 5행 확인
 - ![Image Alt 텍스트]({{site.url}}/assets/img/hands_on_ml/ch2/1.png )
 
 
-
 ```python
 housing.info()
 ```
