@@ -39,13 +39,16 @@ housing = load_housing_data()
 housing.head() # 데이터의 처음 5행 확인
 ```
 
-![](/assets/img/hands_on_ml/ch2/1.png)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/airplane.jpg)
 ![title](assets/img/hands_on_ml/ch2/1.png)
 ![handson_ml_ch02_01.png](/assets/img/1.png)
 
 ![Image Alt 텍스트]({{site.url}}/assets/img/1.png)
 
 ![Image Alt 텍스트](https://uncoded9.github.io/assets/img/1.png)
+
+![Image Alt 텍스트](https://uncoded9.github.io/assets/img/airplane.jpg)
+
 
 ```python
 housing.info()
