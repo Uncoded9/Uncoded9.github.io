@@ -2,7 +2,7 @@
 title: Chapter 2
 layout: post
 categories: [ML, Python]
-image: /assets/img/logo.jpg
+image: /assets/img/hands_on_ml/idea_sketch.jpg
 description: "Welcome to Hands on ML chapter 2"
 ---
 
@@ -48,177 +48,97 @@ housing.info() #데이터에 대한 간략한 설명
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_02.jpg)
 
+
+
 ```python
-housing["ocean_proximity"].value_counts()
+# Dtype이 object인 경우 데이터 타입이 불명확
+# 이 데이터에서는 categorical value이기 때문에 value_counts()로 값 확인 
+
+housing['ocean_proximity'].value_counts() 
 ```
 
-
-
-
-    <1H OCEAN     9136
-    INLAND        6551
-    NEAR OCEAN    2658
-    NEAR BAY      2290
-    ISLAND           5
-    Name: ocean_proximity, dtype: int64
-
-
-
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_03.jpg)
 
 ```python
-housing.describe()
+housing.describe() #숫자형 feature의 요약정보
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>longitude</th>
-      <th>latitude</th>
-      <th>housing_median_age</th>
-      <th>total_rooms</th>
-      <th>total_bedrooms</th>
-      <th>population</th>
-      <th>households</th>
-      <th>median_income</th>
-      <th>median_house_value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>20640.000000</td>
-      <td>20640.000000</td>
-      <td>20640.000000</td>
-      <td>20640.000000</td>
-      <td>20433.000000</td>
-      <td>20640.000000</td>
-      <td>20640.000000</td>
-      <td>20640.000000</td>
-      <td>20640.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>-119.569704</td>
-      <td>35.631861</td>
-      <td>28.639486</td>
-      <td>2635.763081</td>
-      <td>537.870553</td>
-      <td>1425.476744</td>
-      <td>499.539680</td>
-      <td>3.870671</td>
-      <td>206855.816909</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>2.003532</td>
-      <td>2.135952</td>
-      <td>12.585558</td>
-      <td>2181.615252</td>
-      <td>421.385070</td>
-      <td>1132.462122</td>
-      <td>382.329753</td>
-      <td>1.899822</td>
-      <td>115395.615874</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>-124.350000</td>
-      <td>32.540000</td>
-      <td>1.000000</td>
-      <td>2.000000</td>
-      <td>1.000000</td>
-      <td>3.000000</td>
-      <td>1.000000</td>
-      <td>0.499900</td>
-      <td>14999.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>-121.800000</td>
-      <td>33.930000</td>
-      <td>18.000000</td>
-      <td>1447.750000</td>
-      <td>296.000000</td>
-      <td>787.000000</td>
-      <td>280.000000</td>
-      <td>2.563400</td>
-      <td>119600.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>-118.490000</td>
-      <td>34.260000</td>
-      <td>29.000000</td>
-      <td>2127.000000</td>
-      <td>435.000000</td>
-      <td>1166.000000</td>
-      <td>409.000000</td>
-      <td>3.534800</td>
-      <td>179700.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>-118.010000</td>
-      <td>37.710000</td>
-      <td>37.000000</td>
-      <td>3148.000000</td>
-      <td>647.000000</td>
-      <td>1725.000000</td>
-      <td>605.000000</td>
-      <td>4.743250</td>
-      <td>264725.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>-114.310000</td>
-      <td>41.950000</td>
-      <td>52.000000</td>
-      <td>39320.000000</td>
-      <td>6445.000000</td>
-      <td>35682.000000</td>
-      <td>6082.000000</td>
-      <td>15.000100</td>
-      <td>500001.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_04.jpg)
 
 ```python
-%matplotlib inline
+%matplotlib inline   # jupyter notebook안에서 plot이 그려지도록 설정 
 import matplotlib.pyplot as plt
-housing.hist(bins=50, figsize=(20,15))
-# save_fig("attribute_histogram_plots")
-plt.show()
+housing.hist(bins=50,figsize=(20,15))
 ```
 
-
-![Image Alt 텍스트]({{site.url}}/assets/img/posts/hands_on_ml/ch_2/output_8_0_1.png){: width="500" height="500"}
-
-![Image Alt 텍스트]({{site.url}}/assets/img/posts/hands_on_ml/ch_2/handson_ml_ch02_01.png)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_05.jpg)
 
 
 ```python
+%matplotlib inline   # jupyter notebook안에서 plot이 그려지도록 설정 
+import matplotlib.pyplot as plt
+housing.hist(bins=50,figsize=(20,15))
+```
 
+# 3. Test set 만들기
+
+```python
+import numpy as np
+def split_train_set(data, test_ratio):
+    shuffled_indices=np.random.permutation(len(data))
+    test_set_size=int(len(data)*test_ratio)
+    test_indices=shuffled_indices[:test_set_size]
+    train_indices=shuffled_indices[test_set_size:]
+    return data.iloc[train_indices], data.iloc[test_indices]
+
+train_set, test_set = split_train_set(housing, 0.2)
+print(len(train_set))
+print(len(test_set))
+
+# 위에서 정의한 split_train_set을 사용하면 매번 다른 test set이 생성되는 단점이 있음 
+```
+
+위에서 정의한 split_train_set을 사용하면 매번 다른 test set이 생성되는 단점이 있다.  이를 방지하기 위해서 각 샘플 index의 해시값을 계산하여 해시 최댓값의 20%보다 작거나 같은 샘플만 test set으로 설정할수 있다. 이 방법을 사용하면 새로운 데이터가 추가되도 기존의 테스트 세트는 유지되고 새로운 데이터의 20%만 추가된다.
+
+```python
+housing_with_id=housing.reset_index() # 데이터 셋에 index 추가 
+
+from zlib import crc32
+def test_set_check(identifier, test_ratio): # 해시값 생성 함수           
+    return crc32(np.int64(identifier)) & 0xffffffff < test_ratio * 2**32
+
+def split_train_test_by_id(data, test_ratio, id_column):
+    ids = data[id_column]
+    in_test_set = ids.apply(lambda id_: test_set_check(id_, test_ratio))
+    return data.loc[~in_test_set], data.loc[in_test_set]
+
+train_set, test_set=split_train_test_by_id(housing_with_id,0.2,"index")
+```
+
+sklearn에서는 random_state를 사용하여 난수 초기값 설정가능 하다.     
+
+```python
+from sklearn.model_selection import train_test_split
+train_set, test_set = train_test_split(housing, test_size=0.2, random_state=42)
+```
+  
+
+```python
+# 무작위 샘플링은 샘플링 편향을 발생시킬 수 있음
+# 예제 데이터에서 중위소득의 비율을 히스토그램을 이용하여 시각화   
+housing["income_cat"]=pd.cut(housing["median_income"],bins=[0. ,1.5 ,3.0 ,4.5 ,6. ,np.inf],labels=[1,2,3,4,5])
+housing["income_cat"].hist()
+```
+
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_06.jpg)
+
+
+```python
+# 샘플링 편향을 방지하기 위한 계층적 샘플링(stratified sampling)
+
+from sklearn.model_selection import StratifiedShuffleSplit
+split = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+for train_index, test_index in split.split(housing, housing['income_cat']):
+    strat_train_set=housing.loc[train_index]
+    strat_test_set=housing.loc[test_index]
 ```
