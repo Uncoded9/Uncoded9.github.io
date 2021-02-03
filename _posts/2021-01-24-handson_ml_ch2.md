@@ -45,6 +45,7 @@ housing.head() # 데이터의 처음 5행 확인
 
 ![Image Alt 텍스트]({{site.url}}/assets/img/1.png)
 
+![Image Alt 텍스트](https://uncoded9.github.io/assets/img/1.png)
 
 ```python
 housing.info()
