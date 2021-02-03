@@ -39,8 +39,8 @@ housing = load_housing_data()
 housing.head() # 데이터의 처음 5행 확인
 ```
 
-!(/assets/img/hands_on_ml/ch2/1.png)
-
+![](/assets/img/hands_on_ml/ch2/1.png)
+![title](assets/img/hands_on_ml/ch2/1.png)
 
 ```python
 housing.info()
