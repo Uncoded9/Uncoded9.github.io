@@ -68,17 +68,12 @@ housing.describe() #숫자형 feature의 요약정보
 ```python
 %matplotlib inline   # jupyter notebook안에서 plot이 그려지도록 설정 
 import matplotlib.pyplot as plt
-housing.hist(bins=50,figsize=(20,15))
+housing.hist(bins=50,figsize=(20,15));
 ```
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_05.jpg)
 
 
-```python
-%matplotlib inline   # jupyter notebook안에서 plot이 그려지도록 설정 
-import matplotlib.pyplot as plt
-housing.hist(bins=50,figsize=(20,15))
-```
 
 # 3. Test set 만들기
 
