@@ -2,5 +2,49 @@
 layout: default
 ---
 
-{% assign random = site.time | date: "%s%N" | modulo: site.posts.size %}
-<h1>{{ site.posts[random].title }}</h1>
+<script type="text/javascript">
+
+  var postsURL = [{% for post in site.posts %}"{{ post.url }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+
+  var postsTitle = [{% for post in site.posts %}"{{ post.title }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+
+
+  {% coment %}
+  // randomize posts from a specific category
+  //
+  // var postsURL = [{% for post in site.posts %}{% if post.category contains 'reviews' %}{{ post.url }}"{% unless forloop.last %},{% endunless %}{% endif %}{% endfor %}];
+  // var postsTitle = [{% for post in site.posts %}{% if post.category contains 'reviews' %}"{{ post.title }}"{% unless forloop.last %},{% endunless %}{% endif %}{% endfor %}];
+  {% endcomment %}
+</script>
+
+
+<script type="text/javascript">
+
+  var randomIndexUsed = [];
+  var counter = 0;
+  var numberOfPosts = 5;
+
+  while (counter < numberOfPosts) {
+    var randomIndex;
+    var postURL;
+    var postTitle;
+
+    randomIndex = Math.floor(Math.random() * postsURL.length);
+
+    if (randomIndexUsed.indexOf(randomIndex) == "-1") {
+      postURL = postsURL[randomIndex];
+      postTitle = postsTitle[randomIndex];
+
+      if (counter == (numberOfPosts - 1)) {
+        document.write('<p><a href="' + postURL + '">' + postTitle + '</a></p>');
+      } else {
+        document.write('<p><a href="' + postURL + '">' + postTitle + '</a></p><hr />');
+      }
+
+      randomIndexUsed.push(randomIndex);
+
+      counter++;
+    }
+  }
+
+</script>
