@@ -410,6 +410,7 @@ grid_search.fit(housing_prepared, housing_labels)
 # 선택된 최적의 parameter 확인 
 print(grid_search.best_params_)
 ```
+
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_15_2.jpg)
 
 ```python
@@ -433,7 +434,7 @@ cat_one_hot_attribs=list(cat_encoder.categories_[0])
 attributes=num_attribs + extra_attribs + cat_one_hot_attribs
 
 # 특성 중요도와 특성 명칭 결합
-sorted(zip(feature_importances, attributes), reverse=True)e)
+sorted(zip(feature_importances, attributes), reverse=True)
 ```
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_17.jpg)
