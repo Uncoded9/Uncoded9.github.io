@@ -2,7 +2,7 @@
 title: (Hands on ML) Chapter 2
 layout: post
 categories: [ML, Python]
-image: /assets/img/hands_on_ml/idea_sketch.jpg
+image: /assets/img/hands_on_ml/ch2/SlimLim _ Line Art.jpg
 description: "[Hands on ML] Chapter 2. 머신러닝 프로젝트 처음부터 끝까지"
 ---
 
