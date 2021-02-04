@@ -1,5 +1,5 @@
 ---
-title: [Hands on ML] Chapter 2
+title: (Hands on ML) Chapter 2
 layout: post
 categories: [ML, Python]
 image: /assets/img/hands_on_ml/idea_sketch.jpg
