@@ -9,6 +9,7 @@ baseurl: "/"           # url of the jekyll blog. e.g. if you set url to "mysite.
 #  url: "https://alessiofranceschi.me"
 permalink: /:year/:month/:day/:title:output_ext
 
+
 #Plugins
 plugins: [jekyll-paginate, jekyll-feed, jekyll-seo-tag, jekyll-sitemap]
 
