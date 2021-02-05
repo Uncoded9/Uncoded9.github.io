@@ -98,8 +98,10 @@ train_set, test_set = split_train_set(housing, 0.2)
 print(len(train_set))
 print(len(test_set))
 ```
+
 - 각 샘플 index의 해시 값을 계산하여 해시 최댓값의 20%보다 작거나 같은 샘플만 test set으로 설정
     -> 새로운 데이터가 추가되도 기존의 테스트 세트는 유지되고 새로운 데이터의 20%만 추가
+    
 ```python
 housing_with_id=housing.reset_index() # 데이터 셋에 index 추가 
 
