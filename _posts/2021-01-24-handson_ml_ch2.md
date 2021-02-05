@@ -134,6 +134,7 @@ housing["income_cat"].hist()
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_06.jpg)
 
 - 샘플링 편향을 방지하기 위한 계층적 샘플링(stratified sampling) code
+
 ```python
 from sklearn.model_selection import StratifiedShuffleSplit
 split = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
@@ -145,6 +146,7 @@ for train_index, test_index in split.split(housing, housing['income_cat']):
 
 ## 3. 데이터 이해를 위한 탐색과 시각화
 - 원본을 손상시키지 않고 데이터를 탐색하기 위한 훈련 세트의 복사본 생성 후 산점도로 시각화
+
 ```python
 housing=strat_train_set.copy()
 housing.plot(kind="scatter", x="longitude",y="latitude");
@@ -153,6 +155,7 @@ housing.plot(kind="scatter", x="longitude",y="latitude");
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_07.jpg)
 
 - 산점도에서 겹쳐진 point들의 밀집도를 확인하기 위해 alpha 조정
+
 ```python
 housing.plot(kind='scatter',x='longitude',y='latitude',alpha=0.1);
 ```
