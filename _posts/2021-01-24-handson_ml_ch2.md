@@ -284,7 +284,7 @@ housing_cat_1hot.toarray()
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_15.jpg)
 
 
-## 10. 나만의 변환기 사용
+## 9. 나만의 변환기 사용
 
 - class를 활용하여 특성조합을 자동화하면 더 많은 조합을 시도해 볼 수 있음  
 - 5.특성조합에서 다룬 rooms_per_household와 population_per_househlod를 만드는 class 예제
@@ -312,7 +312,7 @@ attr_adder=CombinedAttributesAdder(add_bedrooms_per_room=False)
 housing_extra_attribs=attr_adder.transform(housing.values)
 ```
 
-## 11. 변환 파이프라인
+## 10. 변환 파이프라인
 
 - sklearn의 Pipeline class: 많은 변환단계를 정확한 순서대로 실행되도록 지원 
 
@@ -346,7 +346,7 @@ full_pipeline = ColumnTransformer([
 housing_prepared=full_pipeline.fit_transform(housing)
 ```
 
-## 12. 모델 선택과 훈련
+## 11. 모델 선택과 훈련
 
 - 선형 회귀모형 적합 후 mean_squared_error로 모델평가  
 
@@ -379,7 +379,7 @@ tree_rmse=np.sqrt(tree_mse)
 print(tree_rmse)
 ```
 
-## 13. 교차검증을 사용한 평가
+## 12. 교차검증을 사용한 평가
 
 - k-fold cross validation
     1. training data set을 k개의 subset으로 분할
@@ -412,7 +412,7 @@ def display_scores(scores):
 display_scores(tree_rmse_scores)
 ```
 
-## 14. 모델 세부튜닝
+## 13. 모델 세부튜닝
 
 - grid search: 일정범위의 hyperparameter의 모든 조합을 탐색하는 방법
 
@@ -465,7 +465,7 @@ sorted(zip(feature_importances, attributes), reverse=True)
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_17.jpg)
 
-## 15. 테스트 세트로 시스템 평가하기
+## 14. 테스트 세트로 시스템 평가하기
 
 - grid search로 찾은 최적 모델을 test set으로 평가
 - test set에 training set에서 사용했던 것과 동일한 전처리 pipeline 적용
