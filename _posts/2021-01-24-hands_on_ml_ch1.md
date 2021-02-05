@@ -102,8 +102,7 @@ description: "[Hands on ML] Chapter 1. 한눈에 보는 머신러닝"
 
 - 일반화 오차(generalization error): 훈련된 시스템에 주어진 test data에 대한 오류
 - test set에서 좋은 결과를 가져온 모델도 실제 결과가 좋지 않을 수 있음
-
-    → 방지 위해 validation set(dev set)에서 모델 평가/선택 후 test set에 적용하여 일반화 오차 측정
+    → validation set(dev set)에서 모델 평가/선택 후 test set에 적용하여 일반화 오차 측정
 
 - 실제 시스템에서 사용될 데이터와 훈련 데이터가 불일치
     - 일반화 오차의 원인 파악이 어려움 (데이터 불일치 또는 과대적합)
