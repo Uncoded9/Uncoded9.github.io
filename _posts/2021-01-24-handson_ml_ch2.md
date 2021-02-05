@@ -241,19 +241,20 @@ X=imputer.transform(housing_num) # 계산된 값을 train set에 적용
 housing_tr=pd.DataFrame(X, columns=housing_num.columns, index=housing_num.index) # DataFrame으로 변환
 ```
 
-# 9. 텍스트와 범주형 특성 다루기
+## 8. 텍스트와 범주형 특성 다루기
+
+- 텍스트 데이터인 ocean_proximity의 샘플확인
 
 ```python
-# 텍스트 데이터인 'ocean_proximity'의 샘플확인
 housing_cat=housing[['ocean_proximity']]
 housing_cat.head()
 ```
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_12.jpg)
 
+- ocean_proximity는 문자형 카테고리 feture이므로 숫자형 카테고리로 변환 
 
 ```python
-# 'ocean_proximity'는 문자형 카테고리 feture이므로 숫자형 카테고리로 변환 
 from sklearn.preprocessing import OrdinalEncoder
 ordinal_encoder=OrdinalEncoder()
 housing_cat_encoded=ordinal_encoder.fit_transform(housing_cat)
@@ -262,16 +263,18 @@ housing_cat_encoded[:10]
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_13.jpg)
 
+- 변환에 사용된 문자형 카테고리 확인
+
 ```python
-# 변환에 사용된 문자형 카테고리 확인
 ordinal_encoder.categories_
 ```
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_14.jpg)
 
+- 숫자형 카테고리로 반환할 경우, 머신러닝 알고리즘이 가까운 숫자끼리 더 비슷한 것으로 인식할 수 있음
+- 이를 방지하기 위해 one-hot encoding을 사용 
+
 ```python
-# 숫자형 카테고리로 반환할 경우, 머신러닝 알고리즘이 가까운 숫자끼리 더 비슷한 것으로 인식할 수 있음
-# 이를 방지하기 위해 one-hot encoding을 사용 
 from sklearn.preprocessing import OneHotEncoder
 cat_encoder=OneHotEncoder()
 housing_cat_1hot=cat_encoder.fit_transform(housing_cat)
@@ -281,11 +284,12 @@ housing_cat_1hot.toarray()
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_15.jpg)
 
 
-# 10. 나만의 변환기 사용
+## 10. 나만의 변환기 사용
+
+- class를 활용하여 특성조합을 자동화하면 더 많은 조합을 시도해 볼 수 있음  
+- 5. 특성조합에서 다룬 rooms_per_household와 population_per_househlod를 만드는 class 예제
 
 ```python
-# 특성조합을 만드는 class 예제
-
 from sklearn.base import BaseEstimator, TransformerMixin
 
 rooms_ix, bedrooms_ix, population_ix, househlods_ix= 3, 4, 5, 6
@@ -308,10 +312,11 @@ attr_adder=CombinedAttributesAdder(add_bedrooms_per_room=False)
 housing_extra_attribs=attr_adder.transform(housing.values)
 ```
 
-# 11. 변환 파이프라인
+## 11. 변환 파이프라인
+
+- sklearn의 Pipeline class: 많은 변환단계를 정확한 순서대로 실행되도록 지원 
 
 ```python
-# 데이터 전처리를 순서대로 처리하는 Pipeline 클래스
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
@@ -325,8 +330,9 @@ num_pipeline=Pipeline([
 housing_num_tr=num_pipeline.fit_transform(housing_num)
 ```
 
+- sklearn의 ColumnTransformer class: column의 특성에 따라 데이터를 전처리 
+
 ```python
-# column의 특성에 따라 데이터를 전처리하는 ColumnTransformer 클래스
 from sklearn.compose import ColumnTransformer
 
 num_attribs=list(housing_num)
@@ -340,10 +346,11 @@ full_pipeline = ColumnTransformer([
 housing_prepared=full_pipeline.fit_transform(housing)
 ```
 
-# 12. 모델 선택과 훈련
+## 12. 모델 선택과 훈련
+
+- 선형 회귀모형 적합 후 mean_squared_error로 모델평가  
 
 ```python
-# 선형 회귀모형 적합
 from sklearn.linear_model import LinearRegression
 lin_reg=LinearRegression()
 lin_reg.fit(housing_prepared, housing_labels)
@@ -358,8 +365,9 @@ lin_rmse=np.sqrt(lin_mse)
 print(lin_rmse)
 ```
 
+-  보다 복잡한 비선형 관계를 찾을 수 있는 DecisionTreeRegressor 모형 적합
+
 ```python
-# Decision tree 모형 적합
 from sklearn.tree import DecisionTreeRegressor
 tree_reg=DecisionTreeRegressor()
 tree_reg.fit(housing_prepared, housing_labels)
@@ -371,12 +379,16 @@ tree_rmse=np.sqrt(tree_mse)
 print(tree_rmse)
 ```
 
-# 13. 교차검증을 사용한 평가
+## 13. 교차검증을 사용한 평가
 
-k-fold cross validation는 training data set을 k개의 subset으로 분할하여 k-1개의 training data set으로 모델을 훈련시킨 뒤, 나머지 1개의 set으로 모델을 평가하는 과정을 k번 반복하여 모델을 평가하는 방법이다.   
+- k-fold cross validation
+    1. training data set을 k개의 subset으로 분할
+    2. k-1개의 training data set으로 모델을 훈련
+    3. 나머지 1개의 set으로 모델을 평가하는 과정을 k번 반복
+    4. k개의 평가 결과를 이용해 최종 모델 평가   
 
 ```python
-# sklearn의 cross validation (k=10)from sklearn.ensemble import RandomForestRegressor
+# sklearn의 cross validation (k=10)
 
 from sklearn.ensemble import RandomForestRegressor
 forest_reg=RandomForestRegressor()
@@ -387,9 +399,11 @@ scores=cross_val_score(tree_reg, housing_prepared, housing_labels, scoring='neg_
 
 # cross_val_score에서 scoring은 neg_mean_squared_error는 mse의 음수(-)값으로 측정
 # rmse를 계산하기 위해서 scores를 -scores로 변환
+
 tree_rmse_scores=np.sqrt(-scores)
 
 # descision tree regression의 k-cross validation 결과확인
+
 def display_scores(scores):
     print("점수:", scores)
     print("평균:", scores.mean())
@@ -398,10 +412,11 @@ def display_scores(scores):
 display_scores(tree_rmse_scores)
 ```
 
-# 14. 모델 세부튜닝
+## 14. 모델 세부튜닝
+
+- grid search: 일정범위의 hyper parameter의 모든 조합을 탐색하는 방법
 
 ```python
-# grid search는 일정범위의 hyper parameter의 모든 조합을 탐색
 # 1차 search: 'n_estimators':[3,10,30], 'max_features':[2,4,6,8]의 조합(3*4 = 12번) 탐색
 # 2차 search: 'n_estimators':[3,10], 'max_features':[2,3,4]의 조합(2*3 = 6번) 탐색
 # 1차와 2차 각각 5-fold cross validaion 실행(12*5 + 6*5 = 총 90번의 training 실행)  
@@ -423,8 +438,9 @@ print(grid_search.best_params_)
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_15_2.jpg)
 
+- grid_search.cv_results_에 저장된 grid search의 cross validation 결과 확인
+
 ```python
-# grid search의 cross validation 결과확인
 cvres=grid_search.cv_results_
 for mean_score, params in zip(cvres["mean_test_score"],cvres["params"]):
     print(np.sqrt(-mean_score), params)
@@ -432,7 +448,7 @@ for mean_score, params in zip(cvres["mean_test_score"],cvres["params"]):
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_16.jpg)
 
-# 15. 특성(feature)의 중요도 분석
+- grid search로 찾아낸 feature 조합의 상대 중요도 분석
 
 ```python
 # 특성 중요도를 feature_importances에 저장
@@ -449,7 +465,11 @@ sorted(zip(feature_importances, attributes), reverse=True)
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_17.jpg)
 
-# 16. 테스트 세트로 시스템 평가하기
+## 15. 테스트 세트로 시스템 평가하기
+
+- grid search로 찾은 최적 모델을 test set으로 평가
+    - test set에 training set에서 사용했던 것과 동일한 전처리 pipeline 적용해야 함
+
 
 ```python
 # 최종모델 선택
