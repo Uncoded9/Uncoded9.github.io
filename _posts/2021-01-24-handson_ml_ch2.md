@@ -287,7 +287,7 @@ housing_cat_1hot.toarray()
 ## 10. 나만의 변환기 사용
 
 - class를 활용하여 특성조합을 자동화하면 더 많은 조합을 시도해 볼 수 있음  
-- 5. 특성조합에서 다룬 rooms_per_household와 population_per_househlod를 만드는 class 예제
+- 5.특성조합에서 다룬 rooms_per_household와 population_per_househlod를 만드는 class 예제
 
 ```python
 from sklearn.base import BaseEstimator, TransformerMixin
@@ -468,8 +468,7 @@ sorted(zip(feature_importances, attributes), reverse=True)
 ## 15. 테스트 세트로 시스템 평가하기
 
 - grid search로 찾은 최적 모델을 test set으로 평가
-    - test set에 training set에서 사용했던 것과 동일한 전처리 pipeline 적용해야 함
-
+- test set에 training set에서 사용했던 것과 동일한 전처리 pipeline 적용
 
 ```python
 # 최종모델 선택
