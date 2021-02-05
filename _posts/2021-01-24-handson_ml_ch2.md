@@ -30,6 +30,7 @@ def fetch_housing_data(housing_url=HOUSING_URL, housing_path=HOUSING_PATH):
 fetch_housing_data()
 ```
 - pandas를 이용해서 csv 파일 열기
+
 ```python
 import pandas as pd
 def load_housing_data(housing_path=HOUSING_PATH):
@@ -42,8 +43,8 @@ housing.head() # 데이터의 처음 5행 확인
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_01.jpg)
 
-
-- info()를 이용해 데이터 특성 파악 
+- info()를 이용해 데이터 특성 파악
+ 
 ```python
 housing.info()
 ```
@@ -60,13 +61,15 @@ housing['ocean_proximity'].value_counts()
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_03.jpg)
 
 - 숫자형 데이터의 정보요약
+
 ```python
 housing.describe()
 ```
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_04.jpg)
 
-- jupyter notebook안에서 plot이 그려지도록 설정  
+- jupyter notebook안에서 plot이 그려지도록 설정
+
 ```python
 %matplotlib inline   
 import matplotlib.pyplot as plt
@@ -78,8 +81,10 @@ housing.hist(bins=50,figsize=(20,15));
 
 
 ## 2. Test set 만들기
+
 - 전체 데이터 중 20%를 random하게 추출하여 test set으로 설정하는 code
-- 단점: random하게 추출이므로 매번 다른 test set이 생성 
+- 단점: random하게 추출이므로 매번 다른 test set이 생성
+ 
 ```python
 import numpy as np
 def split_train_set(data, test_ratio):
@@ -164,7 +169,9 @@ plt.legend();
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_09.jpg)
 
 ## 4. 상관관계 조사
+
 - 중간 주택가격과 다른 feature 사이의 상관관계 분석
+
 ```python
 corr_matrix=housing.corr()
 corr_matrix['median_house_value'].sort_values(ascending=False)
@@ -172,7 +179,8 @@ corr_matrix['median_house_value'].sort_values(ascending=False)
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch2/handson_ml_ch02_10.jpg)
 
-- scatter_matrix를 이용한 상관관계 시각화 
+- scatter_matrix를 이용한 상관관계 시각화
+ 
 ```python
 from pandas.plotting import scatter_matrix
 attribute=['median_house_value','median_income', 'total_rooms', 'housing_median_age']
@@ -183,7 +191,9 @@ scatter_matrix(housing[attribute],figsize=(12,8));
 
 
 ## 5. 특성조합으로 실험
-- 가구당 방갯수, 방당 침실갯수, 가구당 인원과 같은 새로운 특성(feature) 생성 
+
+- 가구당 방갯수, 방당 침실갯수, 가구당 인원과 같은 새로운 특성(feature) 생성
+ 
 ```python
 housing['rooms_per_household']=housing['total_rooms']/housing['households']
 housing['bedrooms_per_room']=housing['total_rooms']/housing['total_rooms']
@@ -191,14 +201,17 @@ housing['population']=housing['population']/housing['households']
 ```
 
 ## 6. 머신러닝 알고리즘을 위한 데이터 준비
+
 - strat_train_set에서 housing으로 median_house_value(target)를 제외한 데이터 복사
 - strat_train_set에서 housing_lables로 median_house_value(target) 복사
+
 ```python 
 housing=strat_train_set.drop('median_house_value', axis=1)
 housing_labels=strat_train_set['median_house_value'].copy()
 ```
 
 ## 7. 데이터 정제
+
 - 결측치 처리를 위한 3가지 방법
     1. 결측치가 있는 row만 제거
     2. 결측치가 존재하는 feature 전부 제거
@@ -210,9 +223,11 @@ housing.drop('total_bedrooms',axis=1) # 2. 결측치가 존재하는 feature 전
 median=housing['total_bedrooms'].median() 
 housing['total_bedrooms'].fillna(median, inplace=True) # 3. 특정값으로 대체(중위수 등) 
 ```
+- sklearn을 이용한 결측치 처리
+    1. SimpleImputer를 사용해 결측치를 중위수로 대체하는 객체생성
+    2. 생성된 객체로 각 수치형 feature들의 중위수 계산
 
 ```python
-# 사이킷런을 이용한 결측치 처리
 from sklearn.impute import SimpleImputer
 imputer=SimpleImputer(strategy='median') # 결측치를 중위수로 대체하는 객체생성
 housing_num=housing.drop('ocean_proximity',axis=1) # 수치형 데이터만 따로 저장 
