@@ -414,7 +414,7 @@ display_scores(tree_rmse_scores)
 
 ## 14. 모델 세부튜닝
 
-- grid search: 일정범위의 hyper parameter의 모든 조합을 탐색하는 방법
+- grid search: 일정범위의 hyperparameter의 모든 조합을 탐색하는 방법
 
 ```python
 # 1차 search: 'n_estimators':[3,10,30], 'max_features':[2,4,6,8]의 조합(3*4 = 12번) 탐색
