@@ -1,7 +1,7 @@
 ---
 title: (Hands on ML) Chapter 1
 layout: post
-categories: [ML, Python]
+categories: [Hands on ML, ML, Python]
 image: /assets/img/hands_on_ml/ch1/idea_sketch.jpg
 description: "[Hands on ML] Chapter 1. 한눈에 보는 머신러닝"
 ---
