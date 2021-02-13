@@ -1,6 +1,6 @@
 pages:
   - {name: 'Archive', url: 'archive.html'}
-  # - {name: 'Random', url: 'random.html'}
+  - {name: 'Random', url: 'random.html'}
   # - {name: 'About', url: 'about.html'}
   # - {name: 'Contact', url: 'contact.html'}
   # - {name: 'Get YAMT', url: 'https://github.com/PandaSekh/Jekyll-YAMT'}
