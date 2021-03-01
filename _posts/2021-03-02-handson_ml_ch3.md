@@ -3,7 +3,7 @@ title: (Hands on ML) Chapter 3
 layout: post
 categories: [Hands on ML, ML, Python]
 image: /assets/img/hands_on_ml/ch2/SlimLim _ Line Art.jpg
-description: "[Hands on ML] Chapter 3. 분"
+description: "[Hands on ML] Chapter 3. 분류"
 ---
 
 
