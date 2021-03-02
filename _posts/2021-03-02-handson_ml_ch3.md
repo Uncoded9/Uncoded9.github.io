@@ -158,6 +158,7 @@ print("recall_score:",recall_score(y_train_5, y_train_pred))
     1. 정밀도와 재현율이 비슷한 분류기에서 F1 score가 높음
     2. 정밀도 또는 재현율이 더 높은 것이 중요할 때는 F1 score만으로 모델을 평가할 수 없음
        
+
 $$F_{1}=\frac{2}{\frac{1}{Precision} + \frac{1}{Recall}} = 2 \times \frac{Precision \times Recall}{Precision + Recall}  = \frac{TP}{TP + \frac{FN+FP}{2}}$$
 
 
