@@ -137,7 +137,6 @@ $$Precision:  \frac{TP}{TP+FP}$$
 
 $$Recall:  \frac{TP}{TP+FN} $$
 
-
 ### 3.3 정밀도와 재현율
 
 - sklearn.metrics을 이용한 정밀도와 재현율 계산
