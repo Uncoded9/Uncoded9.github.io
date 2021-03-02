@@ -6,7 +6,6 @@ image: /assets/img/hands_on_ml/ch2/SlimLim _ Line Art.jpg
 description: "[Hands on ML] Chapter 3. 분류"
 ---
 
-
 # 1. MNIST
 
 - sklearn의 MNIST 데이터셋 확인
