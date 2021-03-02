@@ -138,7 +138,7 @@ $$Precision:  \frac{TP}{TP+FP}$$
 → 민감도(sensitivity) 또는 진짜양성비율(True Positive Rate: TPR)로도 표현
 
 
-$$Recall:  \frac{TP}{TP+FN} $$
+$$Recall:  \frac{TP}{TP+FN}$$
 
 
 ### 3.3 정밀도와 재현율
