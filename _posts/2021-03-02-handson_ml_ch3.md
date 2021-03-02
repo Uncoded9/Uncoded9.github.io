@@ -60,7 +60,7 @@ X_train, X_test, y_train, y_test= X[:60000],X[60000:],y[:60000],y[60000:]
 ## 2. 이진분류기
 
 - '5' 여부만을 구분하는 이진분류기 생성
-- SGDClassifier: 확률적 경사하강법(Stochastic Gradient Descent)은 한번에 하나씩 훈련 샘플을 독립적으로 처리하므로 매우 큰 데이터 셋을 효율적으로 학습
+- SGDClassifier: 확률적 경사하강법(Stochastic Gradient Descent)은 한번에 훈련 샘플을 하나씩 독립적으로 처리하므로 매우 큰 데이터 셋을 효율적으로 학습
 - 앞서 추출한 some_digit을 이용하여 test
 
 ```python
