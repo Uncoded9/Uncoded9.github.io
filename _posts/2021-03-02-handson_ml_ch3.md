@@ -128,12 +128,16 @@ print(confusion_matrix(y_train_5, y_train_pred))
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch3/79D72045-A68F-4F30-A8A3-EDA7A6B2F01E_4_5005_c.jpeg)
 
+
 - 정밀도(precision): 양성으로 예측된 샘플 중 실제 양성 샘플의 비율
+
 
 $$Precision:  \frac{TP}{TP+FP}$$
 
+
 - 재현도: 양성 샘플 중 분류기가 정확히 예측한 양성샘플의 비율 
 → 민감도(sensitivity) 또는 진짜양성비율(True Positive Rate: TPR)로도 표현
+
 
 $$Recall:  \frac{TP}{TP+FN} $$
 
