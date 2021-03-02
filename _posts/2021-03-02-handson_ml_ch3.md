@@ -166,7 +166,6 @@ print("recall_score:",recall_score(y_train_5, y_train_pred))
 - sklearn.metrics을 사용한 $F_{1}$ 점수 계산
 
 ```python
-# 정밀도와 재현율의 조화평균을 이용하여 F_{1} score 계산
 from sklearn.metrics import f1_score
 print("f1_score:",f1_score(y_train_5, y_train_pred))
 ```
