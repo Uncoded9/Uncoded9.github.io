@@ -5,7 +5,7 @@ categories: [Hands on ML, ML, Python]
 image: /assets/img/hands_on_ml/ch2/SlimLim _ Line Art.jpg
 description: "[Hands on ML] Chapter 3. 분류"
 ---
-# 1. MNIST
+## 1. MNIST
 
 - sklearn의 MNIST 데이터셋 확인
 
@@ -57,7 +57,7 @@ print('after:', type(y[0]))
 X_train, X_test, y_train, y_test= X[:60000],X[60000:],y[:60000],y[60000:]
 ```
 
-# 2. 이진분류기
+## 2. 이진분류기
 
 - '5' 여부만을 구분하는 이진분류기 생성
 - SGDClassifier: 확률적 경사하강법(Stochastic Gradient Descent)은 한번에 하나씩 훈련 샘플을 독립적으로 처리하므로 매우 큰 데이터 셋을 효율적으로 학습
@@ -76,7 +76,7 @@ print(sgd_clf.predict([some_digit]))
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch3/52C78DCC-2294-47F4-BB4C-EC66C2C4086E_4_5005_c.jpeg)
 
-# 3. 성능측정
+## 3. 성능측정
 
 ### 3.1 교차 검증을 사용한 정확도 측정
 
@@ -106,7 +106,7 @@ cross_val_score(never_5_clf,X_train, y_train_5, cv=3, scoring='accuracy')
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch3/handson_ml_ch03_07.jpg)
 
-## 3.2 오차행렬
+### 3.2 오차행렬
 
 - 오차행렬(confusion matrix): 샘플의 실제 클래스와 예측된 클래스를 카운트하여 비교
 - negative class(첫번째 행)
