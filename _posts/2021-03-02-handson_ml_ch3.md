@@ -130,13 +130,10 @@ print(confusion_matrix(y_train_5, y_train_pred))
 
 - 정밀도(precision): 양성으로 예측된 샘플 중 실제 양성 샘플의 비율
 
-
 $$Precision:  \frac{TP}{TP+FP}$$
 
-
 - 재현도: 양성 샘플 중 분류기가 정확히 예측한 양성샘플의 비율 
-→ 민담도(sensitivity) 또는 진짜양성비율(True Positive Rate: TPR)로도 표현
-
+→ 민감도(sensitivity) 또는 진짜양성비율(True Positive Rate: TPR)로도 표현
 
 $$Recall:  \frac{TP}{TP+FN} $$
 
@@ -154,13 +151,11 @@ print("recall_score:",recall_score(y_train_5, y_train_pred))
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch3/E516029D-BDB5-4741-B878-F775FD1E2A94_4_5005_c.jpeg)
 
-
-- $F_{1}$ 점수: 정밀도와 재현율의 조화평균
+- $F_{1}$ 점수: 정밀도와 재현율 조화평균
     1. 정밀도와 재현율이 비슷한 분류기에서 $F_{1}$ 점수가 높음
     2. 정밀도 또는 재현율이 더 높은 것이 중요할 때는 $F_{1}$ 점수만으로 모델을 평가할 수 없음
-
-  
-    $$F_{1}=\frac{2}{\frac{1}{Precision} + \frac{1}{Recall}} = 2 \times \frac{Precision \times Recall}{Precision + Recall}  = \frac{TP}{TP + \frac{FN+FP}{2}}$$
+       
+$$F_{1}=\frac{2}{\frac{1}{Precision} + \frac{1}{Recall}} = 2 \times \frac{Precision \times Recall}{Precision + Recall}  = \frac{TP}{TP + \frac{FN+FP}{2}}$$
 
 
 - sklearn.metrics을 사용한 $F_{1}$ 점수 계산
