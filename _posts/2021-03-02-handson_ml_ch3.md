@@ -219,7 +219,7 @@ plt.grid()
 plt.show()
 ```
 
-[](https://uncoded9.github.io/assets/img/hands_on_ml/ch3/handson_ml_ch03_13.jpg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch3/handson_ml_ch03_13.jpg)
 
 - 만약 정밀도 90% 달성이 목표라면 np.argmax를 사용해 thresholds를 설정한 뒤 이를 이용해 샘플의 클래스 예측
 
