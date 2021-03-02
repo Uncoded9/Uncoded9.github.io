@@ -155,7 +155,7 @@ print("recall_score:",recall_score(y_train_5, y_train_pred))
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch3/E516029D-BDB5-4741-B878-F775FD1E2A94_4_5005_c.jpeg)
 
 
-- $F_{1}$ 점수: 정밀도와 재현율을 조화평균
+- $F_{1}$ 점수: 정밀도와 재현율의 조화평균
     1. 정밀도와 재현율이 비슷한 분류기에서 $F_{1}$ 점수가 높음
     2. 정밀도 또는 재현율이 더 높은 것이 중요할 때는 $F_{1}$ 점수만으로 모델을 평가할 수 없음
 
