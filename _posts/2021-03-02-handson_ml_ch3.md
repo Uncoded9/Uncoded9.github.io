@@ -131,7 +131,6 @@ print(confusion_matrix(y_train_5, y_train_pred))
 
 - 정밀도(precision): 양성으로 예측된 샘플 중 실제 양성 샘플의 비율
 
-
 $$Precision:  \frac{TP}{TP+FP}$$
 
 
@@ -140,6 +139,7 @@ $$Precision:  \frac{TP}{TP+FP}$$
 
 
 $$Recall:  \frac{TP}{TP+FN} $$
+
 
 ### 3.3 정밀도와 재현율
 
