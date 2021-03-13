@@ -46,7 +46,7 @@ plt.axis([0,2,0,15])
 plt.show()
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/41F831B2-984C-4ACC-9DE5-0D037E1A5299_4_5005_c.jpeg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/41F831B2-984C-4ACC-9DE5-0D037E1A5299_4_5005_c.jpg)
 
 - sklearn을 이용한 선형회귀 code
 
@@ -59,7 +59,7 @@ print('lin_reg.coef_:',lin_reg.coef_)
 print('lin_reg.predict:',lin_reg.predict(X_new))
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/2FC2DC43-AF87-4B50-AD42-D8597FBD0E0F_4_5005_c.jpeg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/2FC2DC43-AF87-4B50-AD42-D8597FBD0E0F_4_5005_c.jpg)
 
 - np.linalg.lstsq를 이용한 $\hat{\theta} = \mathbf{X}^{+} \mathbf{y}$ 계산 →$(\mathbf{X}^{T} \mathbf{X})^{-1}\mathbf{X}^{T} = \mathbf{X}^{+}$
     1. $X=\mathbf{U} \Sigma \mathbf{V}^{T}$ 로 SVD 될 때 $X^{+}=\mathbf{V} \Sigma^{+} \mathbf{U}^{T}$ 
@@ -70,7 +70,7 @@ theta_best_svd, residuals, rank, s= np.linalg.lstsq(X_b,y,rcond=1e-6)
 print('theta_best_svd:',theta_best_svd)
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4//65548FAC-1024-418D-8042-551508C37502_4_5005_c.jpeg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4//65548FAC-1024-418D-8042-551508C37502_4_5005_c.jpg)
 
 - np.linalg.pinv를 이용한 pseudo inverse 계산
 
@@ -78,7 +78,7 @@ print('theta_best_svd:',theta_best_svd)
 np.linalg.pinv(X_b)
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/1C3664F4-F3DB-4442-B368-68821E9E6B56.jpeg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/1C3664F4-F3DB-4442-B368-68821E9E6B56.jpg)
 
 ### 1.2 계산복잡도
 
@@ -135,7 +135,7 @@ for iteration in range(n_iteration):
 print('theta:', theta)
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/E30112EE-7F9D-4CD5-AB38-0A3701B8DD48_4_5005_c.jpeg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/E30112EE-7F9D-4CD5-AB38-0A3701B8DD48_4_5005_c.jpg)
 
 - 적절한 학습률을 찾기 위한 그리드 탐색: 그리드 탐색의 반복횟수를 매우 크게 하고 그래디언트의 norm이 일정기준 보다 작아지면 종료하도록 설정
 
@@ -173,7 +173,7 @@ for epoch in range(n_epochs):
 print('theta:', theta)
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/0FCEF1D1-06CE-4B95-A9DA-B7B7921E0F3D_4_5005_c.jpeg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/0FCEF1D1-06CE-4B95-A9DA-B7B7921E0F3D_4_5005_c.jpg)
 
 - sklearn의 SGDRegressor를 이용한 예제code
 
@@ -186,7 +186,7 @@ print('sgd_reg.intercept_:', sgd_reg.intercept_)
 print('sgd_reg.coef_:', sgd_reg.coef_)
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/AF0AC4AD-8F5F-463E-A2DE-309F7A605701_4_5005_c.jpeg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/AF0AC4AD-8F5F-463E-A2DE-309F7A605701_4_5005_c.jpg)
 
 ### 2.3 미니배치 경사하강법
 
@@ -222,7 +222,7 @@ print('lin_reg.intercept_:', lin_reg.intercept_)
 print('lin_reg.coef_:', lin_reg.coef_)
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/19D3EF78-9253-4848-8B51-782FB9FDE72E_4_5005_c.jpeg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/19D3EF78-9253-4848-8B51-782FB9FDE72E_4_5005_c.jpg)
 
 ## 4.  학습곡선
 
@@ -263,7 +263,7 @@ plt.axis([0, 80, 0, 40])
 plt.show()
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/321BB7E8-274A-4E71-B1A0-178705308192_4_5005_c.jpeg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/321BB7E8-274A-4E71-B1A0-178705308192_4_5005_c.jpg)
 
 - 10차 다항회귀의 학습곡선: 과대적합 예시
     1. 훈련데이터의 오차가 훨씬 낮음
@@ -285,7 +285,7 @@ plt.axis([0, 80, 0, 5])
 plt.show()
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/454AD51A-58EF-4A67-AA5E-3A74D93C6D3B_4_5005_c.jpeg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/454AD51A-58EF-4A67-AA5E-3A74D93C6D3B_4_5005_c.jpg)
 
 - 편향/분산 트레이드오프
     1. 편향: 잘못된 모델 가정으로 인한 것으로 편향이 큰 모델은 과소적합 발생
@@ -319,7 +319,7 @@ ridge_reg.fit(X,y)
 print("ridge_reg.predict([[1.5]]):", ridge_reg.predict([[1.5]]))
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/ECC4BDCA-66AD-4C96-A697-368230A9B308_4_5005_c.jpeg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/ECC4BDCA-66AD-4C96-A697-368230A9B308_4_5005_c.jpg)
 
 - sklearn에서 확률적 경사하강법을 사용한 릿지회귀
 
@@ -329,7 +329,7 @@ sgd_reg.fit(X,y.ravel())
 print("sgd_reg([[1.5]]):", sgd_reg.predict([[1.5]]))
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/F382D99C-7F0D-4AC0-BA94-F0D607B530C6_4_5005_c.jpeg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/F382D99C-7F0D-4AC0-BA94-F0D607B530C6_4_5005_c.jpg)
 
 ### 5.2 라쏘회귀
 
@@ -355,7 +355,7 @@ lasso_reg.fit(X,y)
 lasso_reg.predict([[1.5]])
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/07F9BD63-E6CA-40FE-9D6E-E05B4613B1D4_4_5005_c.jpeg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/07F9BD63-E6CA-40FE-9D6E-E05B4613B1D4_4_5005_c.jpg)
 
 ### 5.3 엘라스틱 넷
 
@@ -374,7 +374,7 @@ elastic_net.fit(X,y)
 print("elastic_net.predict([[1.5]]):", elastic_net.predict([[1.5]]))
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/71CB00A9-38A5-44BB-8D59-57675383DD20_4_5005_c.jpeg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/71CB00A9-38A5-44BB-8D59-57675383DD20_4_5005_c.jpg)
 
 ### 5.4 조기종료
 
@@ -457,7 +457,7 @@ plt.legend(loc="upper right")
 print("log_reg.predict([[1.7],[1.5]]):", log_reg.predict([[1.7],[1.5]]))
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/3983DC01-B65C-48EF-A1D6-BCF0DB671817_4_5005_c.jpeg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/3983DC01-B65C-48EF-A1D6-BCF0DB671817_4_5005_c.jpg)
 
 ## 6.3 소프트맥스 회귀
 
@@ -486,4 +486,4 @@ print(softmax_reg.predict([[5,2]]))
 print(softmax_reg.predict_proba([[5,2]]))
 ```
 
-![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/62062BED-A4F9-4F06-8D8D-EB402D3BCB67_4_5005_c.jpeg)
+![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/62062BED-A4F9-4F06-8D8D-EB402D3BCB67_4_5005_c.jpg)
