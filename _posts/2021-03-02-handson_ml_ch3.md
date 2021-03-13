@@ -2,7 +2,7 @@
 title: (Hands on ML) Chapter 3
 layout: post
 categories: [Hands on ML, ML, Python]
-image: /assets/img/hands_on_ml/ch3/OkamuraYuta — The Design Kids.jpg
+image: /assets/img/hands_on_ml/ch3/Noritake in Taiwan.jpg
 description: "[Hands on ML] Chapter 3. 분류"
 ---
 ## 1. MNIST
