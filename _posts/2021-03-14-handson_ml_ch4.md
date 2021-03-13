@@ -2,7 +2,7 @@
 title: (Hands on ML) Chapter 3
 layout: post
 categories: [Hands on ML, ML, Python]
-image: /assets/img/hands_on_ml/ch3/HarukaFukushi_illust on Instagram.jpg
+image: /assets/img/hands_on_ml/ch4/HarukaFukushi_illust on Instagram.jpg
 description: "[Hands on ML] Chapter 4. 모델훈련"
 ---
 
