@@ -9,20 +9,18 @@ description: "[Hands on ML] Chapter 4. 모델훈련"
 
 # 1. 선형회귀
 
-$$\hat{y}=h_\theta(\mathbf{x})=\theta \cdot \mathbf{x}$$
+$\hat{y}=h_\theta(\mathbf{x})=\theta \cdot \mathbf{x}$
 
-- $\theta$ : $\theta_{0}$ 부터  $\theta_{n}$ 까지 담고있는 파라미터 벡터( $\theta_{0}$ 는 편향)
-- $\mathbf{x}$ : $x_{0}$ 부터 $x_{n}$ 까지 담고있는 샘플의 특성 벡터( $x_{0}$은 항상 1)
-- $h_{\theta}$: 모델 파라미터 $\theta$를 사용한 가설(hypothesis) 함수
-- 선형회귀모델의 MSE 비용함수: $MSE(\mathbf{X}, h_{\theta})=\frac{1}{m} \sum_{i=1}^{m}(\theta^{T} \mathbf{x}^{(i)}-y^{(i)})^{2}$
+- $$\theta$$ : $$\theta_{0}$$ 부터  $$\theta_{n}$$ 까지 담고있는 파라미터 벡터($$\theta_{0}$$ 는 편향)
+- $$\mathbf{x}$$ : $$x_{0}$$ 부터 $$x_{n}$$ 까지 담고있는 샘플의 특성 벡터( $$x_{0}$$은 항상 1)
+- $$h_{\theta}$$: 모델 파라미터 $$\theta$$를 사용한 가설(hypothesis) 함수
+- 선형회귀모델의 MSE 비용함수: $$MSE(\mathbf{X}, h_{\theta})=\frac{1}{m} \sum_{i=1}^{m}(\theta^{T} \mathbf{x}^{(i)}-y^{(i)})^{2}$$
 
 ### 1.1 정규방정식
 
 - 정규방정식: 비용함수를 최소화하는 $\theta$값을 찾기위한 해석적인 공식
 
-$$\hat{\theta}=(\mathbf{X}^{T} \mathbf{X})^{-1}\mathbf{X}^{T}\mathbf{y}
-
-$$
+$\hat{\theta}=(\mathbf{X}^{T} \mathbf{X})^{-1}\mathbf{X}^{T}\mathbf{y}$
 
 - 정규방정식을 이용한 선형회귀 code
 
@@ -62,8 +60,8 @@ print('lin_reg.predict:',lin_reg.predict(X_new))
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/2FC2DC43-AF87-4B50-AD42-D8597FBD0E0F_4_5005_c.jpg)
 
 - np.linalg.lstsq를 이용한 $\hat{\theta} = \mathbf{X}^{+} \mathbf{y}$ 계산 →$(\mathbf{X}^{T} \mathbf{X})^{-1}\mathbf{X}^{T} = \mathbf{X}^{+}$
-    1. $X=\mathbf{U} \Sigma \mathbf{V}^{T}$ 로 SVD 될 때 $X^{+}=\mathbf{V} \Sigma^{+} \mathbf{U}^{T}$ 
-    2. $\Sigma^{+}$: $\Sigma$에서 일정 임계치보다 낮은 모든 원소를 0으로 바꾼 뒤 0이 아닌 모든 원소의 역수를 취한 행렬 
+    1. $$X=\mathbf{U} \Sigma \mathbf{V}^{T}$$ 로 SVD 될 때 $$X^{+}=\mathbf{V} \Sigma^{+} \mathbf{U}^{T}$$ 
+    2. $$\Sigma^{+}$$: $$\Sigma$$에서 일정 임계치보다 낮은 모든 원소를 0으로 바꾼 뒤 0이 아닌 모든 원소의 역수를 취한 행렬 
 
 ```python
 theta_best_svd, residuals, rank, s= np.linalg.lstsq(X_b,y,rcond=1e-6)
@@ -82,18 +80,18 @@ np.linalg.pinv(X_b)
 
 ### 1.2 계산복잡도
 
-- 정규방정식: $\mathbf{X}^{T} \mathbf{X}$의 역행렬을 계산하므로 $O(n^{2.4})$에서 $O(n^{3})$ 사이의 계산복잡도(computational complexity)를 가짐
-- sklearn의 LinearRegression: SVD를 사용하므로 계산복잡도가 $O(n^{2})$ → 정규방정식 보다 상대적으로 낮음
+- 정규방정식: $$\mathbf{X}^{T} \mathbf{X}$$의 역행렬을 계산하므로 $$O(n^{2.4})$에서 $O(n^{3})$$ 사이의 계산복잡도(computational complexity)를 가짐
+- sklearn의 LinearRegression: SVD를 사용하므로 계산복잡도가 $$O(n^{2})$$ → 정규방정식 보다 상대적으로 낮음
 
 ## 2. 경사 하강법
 
-- 파라미터 벡터 $\theta$에 대해 비용함수의 현재 그래디언트를 계산한 뒤 그래디언트가 감소하는 방향으로 파라미터 벡터  
-$\theta$ 이동
-- 학습률(learning rate): 파라미터 벡터 $\theta$가 그래디언트 감소 방향으로 이동하는 크기
+- 파라미터 벡터 $$\theta$$에 대해 비용함수의 현재 그래디언트를 계산한 뒤 그래디언트가 감소하는 방향으로 파라미터 벡터  
+$$\theta$$ 이동
+- 학습률(learning rate): 파라미터 벡터 $$\theta$$가 그래디언트 감소 방향으로 이동하는 크기
 
     → 학습률이 너무 작을 때: 알고리즘 수렴에 많은 시간 소요
 
-    → 학습률이 너무 클 때: 최솟값을 가지는 $\theta$를 지나칠 수 있으며 이 경우 비용함수가 오히려 증가
+    → 학습률이 너무 클 때: 최솟값을 가지는 $$\theta$$를 지나칠 수 있으며 이 경우 비용함수가 오히려 증가
 
 - 선형회귀의 MSE 비용함수는 볼록함수(convex function)으로서 지역 최솟값(local minimum) 없이 전역 최솟값(global minimum)만 가짐
 - 비용함수가 convex function이지만 특성들의 스케일이 크게 달라 특정 파라미터 축에서 길쭉한 형태를 가질 경우  최솟값으로 수렴하는 시간 증가
@@ -104,18 +102,17 @@ $\theta$ 이동
 
 ### 2.1 배치경사하강법
 
-- 비용함수의 편도함수(partial derivative): $\theta_{j}$가 매우 조금 변화할 때 비용함수의 변화량
+- 비용함수의 편도함수(partial derivative): $$\theta_{j}$$가 매우 조금 변화할 때 비용함수의 변화량
 
-$$\frac{\partial}{\partial \theta_{j}} \mathbf{MSE}(\theta)=\frac{2}{m}\sum^{m}_{i=1} (\theta^{T} \mathbf{x}^{(i)} - y^{(i)})x_{j}^{(i)} $$
+$\frac{\partial}{\partial \theta_{j}} \mathbf{MSE}(\theta)=\frac{2}{m}\sum^{m}_{i=1} (\theta^{T} \mathbf{x}^{(i)} - y^{(i)})x_{j}^{(i)} $
 
 - 비용함수의 그래디언트 벡터
 
-$$\nabla_{\theta} \mathbf{MSE}(\theta)=\left( \begin{array}{c} \frac{\partial} {\partial \theta_{0}} \mathbf{MSE}(\theta) \\\frac{\partial} {\partial \theta_{1}} \mathbf{MSE}(\theta) \\ \vdots \\ \frac{\partial} {\partial \theta_{n}} \mathbf{MSE}(\theta) \end{array} \right) = \frac{2}{m} \mathbf{X}^{T} (\mathbf{X} \theta  - \mathbf{y})
-$$
+$\nabla_{\theta} \mathbf{MSE}(\theta)=\left( \begin{array}{c} \frac{\partial} {\partial \theta_{0}} \mathbf{MSE}(\theta) \\\frac{\partial} {\partial \theta_{1}} \mathbf{MSE}(\theta) \\ \vdots \\ \frac{\partial} {\partial \theta_{n}} \mathbf{MSE}(\theta) \end{array} \right) = \frac{2}{m} \mathbf{X}^{T} (\mathbf{X} \theta  - \mathbf{y})$
 
 - 경사하강법의 스텝: 학습률 $\eta$ 만큼 $\theta$ 이동
 
-$$\theta^{( \mathbf{next \; step} )} = \theta - \eta \nabla_{\theta} \mathbf{MSE} (\theta)  $$
+$\theta^{( \mathbf{next \; step} )} = \theta - \eta \nabla_{\theta} \mathbf{MSE} (\theta)  $
 
 - 배치 경사하강법 예제 code
 
@@ -198,7 +195,7 @@ print('sgd_reg.coef_:', sgd_reg.coef_)
 
 - 2차식으로 생성한 비선형 데이터의 다항회귀모델 적합 예제 code
     - sklearn.preprocessing의 PolynomialFeatures를 사용해 2차항을 데이터에 추가 후  LinearRegression()으로 모형 생성
-    - 특성 $a,b$에  PolynomialFeatures(dgree=3)를 적용하면 $a^{2},a^{3},b^{2},b^{3},ab,a^{2}b,b^{2}a$  특성 추가
+    - 특성 $$a,b$$에  PolynomialFeatures(dgree=3)를 적용하면 $$a^{2},a^{3},b^{2},b^{3},ab,a^{2}b,b^{2}a$$  특성 추가
 
      
 
@@ -296,21 +293,21 @@ plt.show()
 
 ### 5.1 릿지회귀
 
-- 규제항 $\alpha \sum_{i=1}^{n} \theta^{2}$  를 비용함수에 추가 (가중치 벡터의 $l^{2}$ norm)
-- $\alpha=0$이면 선형회귀와 같아지며, $\alpha$가 아주 커지면 모든 가중치가 0에 가까워짐 (variance $\uparrow$, bias $\downarrow$)
-- bias 항인 $\theta_{0}$는 규제항에 포함되지 않음
+- 규제항 $$\alpha \sum_{i=1}^{n} \theta^{2}$$  를 비용함수에 추가 (가중치 벡터의 $l^{2}$ norm)
+- $$\alpha=0$$이면 선형회귀와 같아지며, $\alpha$가 아주 커지면 모든 가중치가 0에 가까워짐 (variance $$\uparrow$$, bias $$\downarrow$$)
+- bias 항인 $$\theta_{0}$$는 규제항에 포함되지 않음
 
-$$J(\theta) =  MSE(\theta) + \alpha \frac{1}{2}\sum_{i=1}^{n} \theta_{i}^{2}  $$
+$J(\theta) =  MSE(\theta) + \alpha \frac{1}{2}\sum_{i=1}^{n} \theta_{i}^{2}$
 
 - 릿지회귀의 정규방정식: A는 맨 좌측상단의 원소가 0인 (n+1) $\times$(n+1)인 단위행렬
 
-$$\mathbf{\theta}= (X^{T}X + \alpha A)^{-1}X^{T}y $$
+$\mathbf{\theta}= (X^{T}X + \alpha A)^{-1}X^{T}y$
 
 - sklearn에서 Cholesky decomposition을 사용한 릿지회귀 예제 code
 
-    → matrix A가 대칭이고 positive definite일 때, $A=L L^{T}$  (L은 lower triangular matrix)임을 이용
+    → matrix A가 대칭이고 positive definite일 때, $$A=L L^{T}$$  (L은 lower triangular matrix)임을 이용
 
-    $$ (X^{T}X + \alpha A) \hat{\theta}= (\mathbf{L}\mathbf{L}^{T})\hat{\theta}=\mathbf{X}^{T} \mathbf{y}$$
+    $(X^{T}X + \alpha A) \hat{\theta}= (\mathbf{L}\mathbf{L}^{T})\hat{\theta}=\mathbf{X}^{T} \mathbf{y}$
 
 ```python
 from sklearn.linear_model import Ridge
@@ -335,7 +332,7 @@ print("sgd_reg([[1.5]]):", sgd_reg.predict([[1.5]]))
 
 - 라쏘회귀의 비용함수
 
-$$J(\theta) =  MSE(\theta) + \alpha \sum_{i=1}^{n}  | \theta_{i}|$$
+$J(\theta) =  MSE(\theta) + \alpha \sum_{i=1}^{n}  | \theta_{i}|$
 
 - 라쏘회귀는 자동으로 특성을 선택하고 sparse model을 만듬
 - 릿지회귀와 라쏘회귀의 차이점
@@ -343,10 +340,10 @@ $$J(\theta) =  MSE(\theta) + \alpha \sum_{i=1}^{n}  | \theta_{i}|$$
     2. 릿지회귀는 $\alpha$를 증가시킬 때 최적 파라미터가 0에 가까워지지만 완전히0이 되지는 않음 
 - 라쏘의 비용함수는 0일때 미분가능하지 않으므로 subgradient vectot를 이용하여 경사하강법 적용
 
-$$g(\theta, J)=\nabla_{\theta} MSE(\theta) + \alpha \begin{pmatrix}
+$g(\theta, J)=\nabla_{\theta} MSE(\theta) + \alpha \begin{pmatrix}
 \mathsf{sign} (\theta_{1})\\
 \mathsf{sign}(\theta_{2})\\ \vdots \\ \mathsf{sign}(\theta_{n})
-\end{pmatrix}$$
+\end{pmatrix}$
 
 ```python
 from sklearn.linear_model import Lasso
@@ -365,7 +362,7 @@ lasso_reg.predict([[1.5]])
 
     → 라쏘는 특성수가 샘플 수(n)보다 많으면 최대 n개의 특성을 선택하고, 여러 개의 특성이 서로 강하게 연관되어 있으면 이들 중 임의의 특성 하나를 선택  
 
-$$J(\theta) = MSE(\theta) + r\alpha\sum_{i=1}^{n} |\alpha| + \frac{1-r}{2} \alpha \sum_{i=1}^{n}\theta^{2}$$
+$J(\theta) = MSE(\theta) + r\alpha\sum_{i=1}^{n} |\alpha| + \frac{1-r}{2} \alpha \sum_{i=1}^{n}\theta^{2}$
 
 ```python
 from sklearn.linear_model import ElasticNet
@@ -419,18 +416,18 @@ for epoch in range(10):
 
 - 로지스틱 회귀모델은 입력특성의 가중치 합을 계산하고 편향을 더한 뒤 결괏값의 logistic을 출력
 
-$$\hat{p}=h_{\theta}(\mathbf{x})=\sigma(\theta^{T} \mathbf{x}) \\ \sigma(t)=\frac{1}{1+\exp (-t)}$$
+$\hat{p}=h_{\theta}(\mathbf{x})=\sigma(\theta^{T} \mathbf{x}) \\ \sigma(t)=\frac{1}{1+\exp (-t)}$
 
-- 샘플 $\mathbf{x}$ 가 양성 클래스에 속할 확률 $\hat{p}=h_{\theta}(\mathbf{x})$를 다음과 같이 추정
+- 샘플 $$\mathbf{x}$$ 가 양성 클래스에 속할 확률 $$\hat{p}=h_{\theta}(\mathbf{x})$$를 다음과 같이 추정
 
-$$\hat{y}= \left\{ \begin{array}{lcl} 0 \;\; \mathsf{when} \;\; \hat{p} < 0.5 \\  1 \;\; \mathsf{when} \;\; \hat{p} >= 0.5                  \end{array}\right.$$
+$\hat{y}= \left\{ \begin{array}{lcl} 0 \;\; \mathsf{when} \;\; \hat{p} < 0.5 \\  1 \;\; \mathsf{when} \;\; \hat{p} >= 0.5 \end{array}\right.$
 
 ## 6.1 훈련과 비용함수
 
 - cost function으로 log loss function 사용하는데, 최솟값을 계산할수 있는 closed form은 없음
 - 하지만 convex function이므로 gradient descent를 사용하면 global minimum을 찾을 수 있음
 
-$$c(\theta)= \left\{ \begin{array}{lcl} -\log (\hat{p}) \;\; \mathsf{when} \;\; y=1 \\  -\log (\hat{1-p}) \;\; \mathsf{when} \;\;y = 0                 \end{array}\right. \\ J(\theta) = - \frac{1}{m}\sum_{i=1}^{m} [ y^{(i)} \log (\hat{p}^{(i)}) + (1-y^{(i)}) \log (1 - \hat{p}^{(i)}) ] \\ \frac{\partial}{\partial \theta_{j}} J(\theta)= \frac{1}{m} \sum_{i=1}^{m} ( \sigma(\theta^{T} \mathbf{x^{(i)}} )  - y^{(i)}) \mathbf{x^{(i)}_{j}}$$
+$c(\theta)= \left\{ \begin{array}{lcl} -\log (\hat{p}) \;\; \mathsf{when} \;\; y=1 \\  -\log (\hat{1-p}) \;\; \mathsf{when} \;\;y = 0                 \end{array}\right. \\ J(\theta) = - \frac{1}{m}\sum_{i=1}^{m} [ y^{(i)} \log (\hat{p}^{(i)}) + (1-y^{(i)}) \log (1 - \hat{p}^{(i)}) ] \\ \frac{\partial}{\partial \theta_{j}} J(\theta)= \frac{1}{m} \sum_{i=1}^{m} ( \sigma(\theta^{T} \mathbf{x^{(i)}} )  - y^{(i)}) \mathbf{x^{(i)}_{j}}$
 
 ## 6.2 결정경계
 
@@ -461,18 +458,18 @@ print("log_reg.predict([[1.7],[1.5]]):", log_reg.predict([[1.7],[1.5]]))
 
 ## 6.3 소프트맥스 회귀
 
-- 샘플 x가 주어지면 소프트맥스 회귀 모델이 각 클래스 k에 해당하는 점수 $s_k(x)$를 계산하고 그 점수에 소프트맥스 함수를 적용하여 각 클래스의 확률 추정
-- 각 클래스는 자신만의 파라미터 벡터 $\theta^{(k)}$가 있으며 이 값들은 파라미터 행렬  $\Theta$에 행으로 저장
-- $s_{k}(\mathbf{x})$는 샘플 x에 대한 각 클래스의 점수이고,  $\sigma(s(\mathbf{x}))_{k}$는 샘플이 클래스 k에 속할 추정 확률
+- 샘플 x가 주어지면 소프트맥스 회귀 모델이 각 클래스 k에 해당하는 점수 $$s_k(x)$$를 계산하고 그 점수에 소프트맥스 함수를 적용하여 각 클래스의 확률 추정
+- 각 클래스는 자신만의 파라미터 벡터 $$\theta^{(k)}$$가 있으며 이 값들은 파라미터 행렬  $\Theta$에 행으로 저장
+- $$s_{k}(\mathbf{x})$$는 샘플 x에 대한 각 클래스의 점수이고, $$\sigma(s(\mathbf{x}))_{k}$$는 샘플이 클래스 k에 속할 추정 확률
 - 소프트맥스 회귀는 한번에 하나의 클래스만 예측(not multioutput)
 
-$$s_{k}(\mathbf{x})= (\theta^{(k)})^{T}\mathbf{x} \\ \hat{p}_{k} = \sigma(s(\mathbf{x}))_{k}=\frac{\exp(s_{k}(\mathbf{x}))}{\sum_{j=1}^{K} \exp(s_{j}(\mathbf{x}))} \\ \hat{y}=\argmax_{k} \sigma(s(\mathbf{x}))_{k} = \argmax_{k}s_{k}(\mathbf{x}) = \argmax_{k} ((\theta^{(k)})^{T} \mathbf{x})$$
+$s_{k}(\mathbf{x})= (\theta^{(k)})^{T}\mathbf{x} \\ \hat{p}_{k} = \sigma(s(\mathbf{x}))_{k}=\frac{\exp(s_{k}(\mathbf{x}))}{\sum_{j=1}^{K} \exp(s_{j}(\mathbf{x}))} \\ \hat{y}=\argmax_{k} \sigma(s(\mathbf{x}))_{k} = \argmax_{k}s_{k}(\mathbf{x}) = \argmax_{k} ((\theta^{(k)})^{T} \mathbf{x})$
 
 - 크로스 엔트로피 비용함수로 추정된 클래스의 확률이 타겟 클래스에 얼마나 잘맞는지 측정
 
-$$J(\Theta) = - \frac{1}{m} \sum_{i=1}^{m} \sum_{k=1}^{K} y^{(i)}_{k} \log(\hat{p}^{(i)}_{k}) \\ \nabla_{\theta^{(k)}} J(\Theta) = \frac{1}{m} \sum_{i=1}^{m}(\hat{p}^{(i)}_{k} - y^{(i)}_{k} ) \mathbf{x}^{(i)}$$
+$J(\Theta) = - \frac{1}{m} \sum_{i=1}^{m} \sum_{k=1}^{K} y^{(i)}_{k} \log(\hat{p}^{(i)}_{k}) \\ \nabla_{\theta^{(k)}} J(\Theta) = \frac{1}{m} \sum_{i=1}^{m}(\hat{p}^{(i)}_{k} - y^{(i)}_{k} ) \mathbf{x}^{(i)}$
 
-- $y^{(i)}_{k}$는 i 번째 샘플이 클래스 k에 속하는지 여부로 0 또는 1의 값을 가짐
+- $$y^{(i)}_{k}$$는 i 번째 샘플이 클래스 k에 속하는지 여부로 0 또는 1의 값을 가짐
 - LogisticRegression에서 multi_class="multinomial"로 설정하여 소프트맥스 회귀를 적용하는 예제code
 
 ```python
