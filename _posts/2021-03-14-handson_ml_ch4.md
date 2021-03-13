@@ -18,7 +18,7 @@ $\hat{y}=h_\theta(\mathbf{x})=\theta \cdot \mathbf{x}$
 
 ### 1.1 정규방정식
 
-- 정규방정식: 비용함수를 최소화하는 $\theta$값을 찾기위한 해석적인 공식
+- 정규방정식: 비용함수를 최소화하는 $$\theta$$값을 찾기위한 해석적인 공식
   
 $\hat{\theta}=(\mathbf{X}^{T} \mathbf{X})^{-1}\mathbf{X}^{T}\mathbf{y}$
 
