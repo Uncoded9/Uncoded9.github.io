@@ -9,7 +9,7 @@ description: "[Hands on ML] Chapter 4. 모델훈련"
 
 # 1. 선형회귀
 
-\\hat{y}=h_\theta(\mathbf{x})=\theta \cdot \mathbf{x}\
+$$hat{y}=h_\theta(\mathbf{x})=\theta \cdot \mathbf{x}$$
 
 - $$\theta$$ : $$\theta_{0}$$ 부터  $$\theta_{n}$$ 까지 담고있는 파라미터 벡터($$\theta_{0}$$ 는 편향)
 - $$\mathbf{x}$$ : $$x_{0}$$ 부터 $$x_{n}$$ 까지 담고있는 샘플의 특성 벡터( $$x_{0}$$은 항상 1)
