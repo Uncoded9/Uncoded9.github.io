@@ -110,7 +110,7 @@ $$\frac{\partial}{\partial \theta_{j}} \mathbf{MSE}(\theta)=\frac{2}{m}\sum^{m}_
 
 $$\nabla_{\theta} \mathbf{MSE}(\theta)=\left( \begin{array}{c} \frac{\partial} {\partial \theta_{0}} \mathbf{MSE}(\theta) \\\frac{\partial} {\partial \theta_{1}} \mathbf{MSE}(\theta) \\ \vdots \\ \frac{\partial} {\partial \theta_{n}} \mathbf{MSE}(\theta) \end{array} \right) = \frac{2}{m} \mathbf{X}^{T} (\mathbf{X} \theta  - \mathbf{y})$$
 
-- 경사하강법의 스텝: 학습률 $\eta$ 만큼 $\theta$ 이동
+- 경사하강법의 스텝: 학습률 $$\eta$$ 만큼 $$\theta$$ 이동
 
 $$\theta^{( \mathbf{next \; step} )} = \theta - \eta \nabla_{\theta} \mathbf{MSE} (\theta)$$
 
