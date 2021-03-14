@@ -426,9 +426,16 @@ $$\hat{y}= \left\{ \begin{array}{lcl} 0 \;\; \mathsf{when} \;\; \hat{p} < 0.5 \\
 
 - cost function으로 log loss function 사용하는데, 최솟값을 계산할수 있는 closed form은 없음
 - 하지만 convex function이므로 gradient descent를 사용하면 global minimum을 찾을 수 있음
-- 하나의 훈련샘플에 대한 비용함수: $$c(\theta)= \left\{ \begin{array}{lcl} -\log (\hat{p}) \;\; \mathsf{when} \;\; y=1  \\  -\log (\hat{1-p}) \;\; \mathsf{when} \;\;y = 0  \end{array}\right.$$  
-- 로지스틱회귀의 비용함수: $$J(\theta) = - \frac{1}{m}\sum_{i=1}^{m} [ y^{(i)} \log (\hat{p}^{(i)}) + (1-y^{(i)}) \log (1 - \hat{p}^{(i)}) ]$$ 
- -로지스틱 비용함수의 편도함수: $$\frac{\partial}{\partial \theta_{j}} J(\theta)= \frac{1}{m} \sum_{i=1}^{m} ( \sigma(\theta^{T} \mathbf{x^{(i)}} )  - y^{(i)}) \mathbf{x^{(i)}_{j}}$$
+
+- 하나의 훈련샘플에 대한 비용함수: 
+$$c(\theta)= \left\{ \begin{array}{lcl} -\log (\hat{p}) \;\; \mathsf{when} \;\; y=1  \\  -\log (\hat{1-p}) \;\; \mathsf{when} \;\;y = 0  \end{array}\right.$$  
+
+- 로지스틱회귀의 비용함수:  
+$$J(\theta) = - \frac{1}{m}\sum_{i=1}^{m} [ y^{(i)} \log (\hat{p}^{(i)}) + (1-y^{(i)}) \log (1 - \hat{p}^{(i)}) ]$$ 
+ 
+-로지스틱 비용함수의 편도함수:
+  
+$$\frac{\partial}{\partial \theta_{j}} J(\theta)= \frac{1}{m} \sum_{i=1}^{m} ( \sigma(\theta^{T} \mathbf{x^{(i)}} )  - y^{(i)}) \mathbf{x^{(i)}_{j}}$$
 
 ## 6.2 결정경계
 
@@ -466,9 +473,11 @@ print("log_reg.predict([[1.7],[1.5]]):", log_reg.predict([[1.7],[1.5]]))
 - 클래스$$k$$에 대한 소프트맥스 점수: $$s_{k}(\mathbf{x})= (\theta^{(k)})^{T}\mathbf{x}$$  
 - 소프트맥스 함수: $$\hat{p}_{k} = \sigma(s(\mathbf{x}))_{k}=\frac{\exp(s_{k}(\mathbf{x}))}{\sum_{j=1}^{K} \exp(s_{j}(\mathbf{x}))}$$
 - 소프트맥스 회귀 분류기의 예측: $$\hat{y}=\argmax_{k} \sigma(s(\mathbf{x}))_{k} = \argmax_{k}s_{k}(\mathbf{x}) = \argmax_{k} ((\theta^{(k)})^{T} \mathbf{x})$$
-- 크로스 엔트로피 비용함수로 추정된 클래스의 확률이 타겟 클래스에 얼마나 잘맞는지 측정
-  - $$J(\Theta) = - \frac{1}{m} \sum_{i=1}^{m} \sum_{k=1}^{K} y^{(i)}_{k} \log(\hat{p}^{(i)}_{k})$$
-  - 클래스 $$k$$에 대한 크로스엔트로피의 그레디언트 벡터: $$\nabla_{\theta^{(k)}} J(\Theta) = \frac{1}{m} \sum_{i=1}^{m}(\hat{p}^{(i)}_{k} - y^{(i)}_{k} ) \mathbf{x}^{(i)}$$
+- 크로스 엔트로피 비용함수로 추정된 클래스의 확률이 타겟 클래스에 얼마나 잘맞는지 측정  
+$$J(\Theta) = - \frac{1}{m} \sum_{i=1}^{m} \sum_{k=1}^{K} y^{(i)}_{k} \log(\hat{p}^{(i)}_{k})$$
+
+- 클래스 $$k$$에 대한 크로스엔트로피의 그레디언트 벡터:  
+$$\nabla_{\theta^{(k)}} J(\Theta) = \frac{1}{m} \sum_{i=1}^{m}(\hat{p}^{(i)}_{k} - y^{(i)}_{k} ) \mathbf{x}^{(i)}$$
   
 - $$y^{(i)}_{k}$$는 i 번째 샘플이 클래스 k에 속하는지 여부로 0 또는 1의 값을 가짐
 - LogisticRegression에서 multi_class="multinomial"로 설정하여 소프트맥스 회귀를 적용하는 예제code
