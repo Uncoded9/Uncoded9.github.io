@@ -427,10 +427,12 @@ $$\hat{y}= \left\{ \begin{array}{lcl} 0 \;\; \mathsf{when} \;\; \hat{p} < 0.5 \\
 - cost function으로 log loss function 사용하는데, 최솟값을 계산할수 있는 closed form은 없음
 - 하지만 convex function이므로 gradient descent를 사용하면 global minimum을 찾을 수 있음
 
-- 하나의 훈련샘플에 대한 비용함수: 
+- 하나의 훈련샘플에 대한 비용함수:
+  
 $$c(\theta)= \left\{ \begin{array}{lcl} -\log (\hat{p}) \;\; \mathsf{when} \;\; y=1  \\  -\log (\hat{1-p}) \;\; \mathsf{when} \;\;y = 0  \end{array}\right.$$  
 
-- 로지스틱회귀의 비용함수:  
+- 로지스틱회귀의 비용함수:
+  
 $$J(\theta) = - \frac{1}{m}\sum_{i=1}^{m} [ y^{(i)} \log (\hat{p}^{(i)}) + (1-y^{(i)}) \log (1 - \hat{p}^{(i)}) ]$$ 
   
 
