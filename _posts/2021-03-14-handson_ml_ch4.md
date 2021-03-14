@@ -420,7 +420,7 @@ $$\hat{p}=h_{\theta}(\mathbf{x})=\sigma(\theta^{T} \mathbf{x}) \\ \sigma(t)=\fra
 
 - 샘플 $$\mathbf{x}$$ 가 양성 클래스에 속할 확률 $$\hat{p}=h_{\theta}(\mathbf{x})$$를 다음과 같이 추정
 
-$$\hat{y}= \left\{ \begin{array}{lcl} 0 \;\; \mathsf{when} \;\; \hat{p} < 0.5 \\  1 \;\; \mathsf{when} \;\; \hat{p} >= 0.5 \end{array}\right$$
+$$\hat{y}= \left\{ \begin{array}{lcl} 0 \;\; \mathsf{when} \;\; \hat{p} < 0.5 \\  1 \;\; \mathsf{when} \;\; \hat{p} >= 0.5 \end{array}\right.$$
 
 ## 6.1 훈련과 비용함수
 
