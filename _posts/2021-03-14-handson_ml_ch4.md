@@ -80,7 +80,7 @@ np.linalg.pinv(X_b)
 
 ### 1.2 계산복잡도
 
-- 정규방정식: $$\mathbf{X}^{T} \mathbf{X}$$의 역행렬을 계산하므로 $$O(n^{2.4})$에서 $O(n^{3})$$ 사이의 계산복잡도(computational complexity)를 가짐
+- 정규방정식: $$\mathbf{X}^{T} \mathbf{X}$$의 역행렬을 계산하므로 $$O(n^{2.4})$$에서 $$O(n^{3})$$ 사이의 계산복잡도(computational complexity)를 가짐
 - sklearn의 LinearRegression: SVD를 사용하므로 계산복잡도가 $$O(n^{2})$$ → 정규방정식 보다 상대적으로 낮음
 
 ## 2. 경사 하강법
