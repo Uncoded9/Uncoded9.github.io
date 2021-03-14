@@ -59,7 +59,7 @@ print('lin_reg.predict:',lin_reg.predict(X_new))
 
 ![](https://uncoded9.github.io/assets/img/hands_on_ml/ch4/2FC2DC43-AF87-4B50-AD42-D8597FBD0E0F_4_5005_c.jpg)
 
-- np.linalg.lstsq를 이용한 $$\hat{\theta} = \mathbf{X}^{+} \mathbf{y}$ 계산 →$(\mathbf{X}^{T} \mathbf{X})^{-1}\mathbf{X}^{T} = \mathbf{X}^{+}$$
+- np.linalg.lstsq를 이용한 $$\hat{\theta} = \mathbf{X}^{+} \mathbf{y}$$ 계산 →$$(\mathbf{X}^{T} \mathbf{X})^{-1}\mathbf{X}^{T} = \mathbf{X}^{+}$$
     1. $$X=\mathbf{U} \Sigma \mathbf{V}^{T}$$ 로 SVD 될 때 $$X^{+}=\mathbf{V} \Sigma^{+} \mathbf{U}^{T}$$ 
     2. $$\Sigma^{+}$$: $$\Sigma$$에서 일정 임계치보다 낮은 모든 원소를 0으로 바꾼 뒤 0이 아닌 모든 원소의 역수를 취한 행렬 
 
