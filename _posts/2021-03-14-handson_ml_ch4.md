@@ -427,7 +427,7 @@ $$\hat{y}= \left\{ \begin{array}{lcl} 0 \;\; \mathsf{when} \;\; \hat{p} < 0.5 \\
 - cost function으로 log loss function 사용하는데, 최솟값을 계산할수 있는 closed form은 없음
 - 하지만 convex function이므로 gradient descent를 사용하면 global minimum을 찾을 수 있음
 
-$$c(\theta)= \left\{ \begin{array}{lcl} -\log (\hat{p}) \;\; \mathsf{when} \;\; y=1 \\  -\log (\hat{1-p}) \;\; \mathsf{when} \;\;y = 0                 \end{array}\right. \\ J(\theta) = - \frac{1}{m}\sum_{i=1}^{m} [ y^{(i)} \log (\hat{p}^{(i)}) + (1-y^{(i)}) \log (1 - \hat{p}^{(i)}) ] \\ \frac{\partial}{\partial \theta_{j}} J(\theta)= \frac{1}{m} \sum_{i=1}^{m} ( \sigma(\theta^{T} \mathbf{x^{(i)}} )  - y^{(i)}) \mathbf{x^{(i)}_{j}}$$
+$$c(\theta)= \left\{ \begin{array}{lcl} -\log (\hat{p}) \;\; \mathsf{when} \;\; y=1  \\  -\log (\hat{1-p}) \;\; \mathsf{when} \;\;y = 0                 \end{array}\right. \\ J(\theta) = - \frac{1}{m}\sum_{i=1}^{m} [ y^{(i)} \log (\hat{p}^{(i)}) + (1-y^{(i)}) \log (1 - \hat{p}^{(i)}) ] \\ \frac{\partial}{\partial \theta_{j}} J(\theta)= \frac{1}{m} \sum_{i=1}^{m} ( \sigma(\theta^{T} \mathbf{x^{(i)}} )  - y^{(i)}) \mathbf{x^{(i)}_{j}}$$
 
 ## 6.2 결정경계
 
