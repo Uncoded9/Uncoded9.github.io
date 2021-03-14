@@ -293,8 +293,8 @@ plt.show()
 
 ### 5.1 릿지회귀
 
-- 규제항 $$\alpha \sum_{i=1}^{n} \theta^{2}$$  를 비용함수에 추가 (가중치 벡터의 $l^{2}$ norm)
-- $$\alpha=0$$이면 선형회귀와 같아지며, $\alpha$가 아주 커지면 모든 가중치가 0에 가까워짐 (variance $$\uparrow$$, bias $$\downarrow$$)
+- 규제항 $$\alpha \sum_{i=1}^{n} \theta^{2}$$  를 비용함수에 추가 (가중치 벡터의 $$l^{2}$$ norm)
+- $$\alpha=0$$이면 선형회귀와 같아지며, $$\alpha$$가 아주 커지면 모든 가중치가 0에 가까워짐 (variance $$\uparrow$$, bias $$\downarrow$$)
 - bias 항인 $$\theta_{0}$$는 규제항에 포함되지 않음
 
 $$J(\theta) =  MSE(\theta) + \alpha \frac{1}{2}\sum_{i=1}^{n} \theta_{i}^{2}$$
