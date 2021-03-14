@@ -436,7 +436,7 @@ $$c(\theta)= \left\{ \begin{array}{lcl} -\log (\hat{p}) \;\; \mathsf{when} \;\; 
 $$J(\theta) = - \frac{1}{m}\sum_{i=1}^{m} [ y^{(i)} \log (\hat{p}^{(i)}) + (1-y^{(i)}) \log (1 - \hat{p}^{(i)}) ]$$ 
   
 
--로지스틱 비용함수의 편도함수:
+- 로지스틱 비용함수의 편도함수:
 
 $$\frac{\partial}{\partial \theta_{j}} J(\theta)= \frac{1}{m} \sum_{i=1}^{m} ( \sigma(\theta^{T} \mathbf{x^{(i)}} )  - y^{(i)}) \mathbf{x^{(i)}_{j}}$$
 
