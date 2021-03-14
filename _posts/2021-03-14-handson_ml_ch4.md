@@ -337,7 +337,7 @@ $$J(\theta) =  MSE(\theta) + \alpha \sum_{i=1}^{n}  | \theta_{i}|$$
 - 라쏘회귀는 자동으로 특성을 선택하고 sparse model을 만듬
 - 릿지회귀와 라쏘회귀의 차이점
     1. 릿지회귀는 손실함수가 global minimum에 가까워질수록 그래디언트가 작아져 수렴에 도움이 됨
-    2. 릿지회귀는 $\alpha$를 증가시킬 때 최적 파라미터가 0에 가까워지지만 완전히0이 되지는 않음 
+    2. 릿지회귀는 $$\alpha$$를 증가시킬 때 최적 파라미터가 0에 가까워지지만 완전히0이 되지는 않음 
 - 라쏘의 비용함수는 0일때 미분가능하지 않으므로 subgradient vectot를 이용하여 경사하강법 적용
 
 $$g(\theta, J)=\nabla_{\theta} MSE(\theta) + \alpha \begin{pmatrix}
