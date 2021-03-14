@@ -432,9 +432,10 @@ $$c(\theta)= \left\{ \begin{array}{lcl} -\log (\hat{p}) \;\; \mathsf{when} \;\; 
 
 - 로지스틱회귀의 비용함수:  
 $$J(\theta) = - \frac{1}{m}\sum_{i=1}^{m} [ y^{(i)} \log (\hat{p}^{(i)}) + (1-y^{(i)}) \log (1 - \hat{p}^{(i)}) ]$$ 
- 
--로지스틱 비용함수의 편도함수:
   
+
+-로지스틱 비용함수의 편도함수:
+
 $$\frac{\partial}{\partial \theta_{j}} J(\theta)= \frac{1}{m} \sum_{i=1}^{m} ( \sigma(\theta^{T} \mathbf{x^{(i)}} )  - y^{(i)}) \mathbf{x^{(i)}_{j}}$$
 
 ## 6.2 결정경계
@@ -470,10 +471,20 @@ print("log_reg.predict([[1.7],[1.5]]):", log_reg.predict([[1.7],[1.5]]))
 - 각 클래스는 자신만의 파라미터 벡터 $$\theta^{(k)}$$가 있으며 이 값들은 파라미터 행렬  $\Theta$에 행으로 저장
 - $$s_{k}(\mathbf{x})$$는 샘플 x에 대한 각 클래스의 점수이고, $$\sigma(s(\mathbf{x}))_{k}$$는 샘플이 클래스 k에 속할 추정 확률
 - 소프트맥스 회귀는 한번에 하나의 클래스만 예측(not multioutput)
-- 클래스$$k$$에 대한 소프트맥스 점수: $$s_{k}(\mathbf{x})= (\theta^{(k)})^{T}\mathbf{x}$$  
-- 소프트맥스 함수: $$\hat{p}_{k} = \sigma(s(\mathbf{x}))_{k}=\frac{\exp(s_{k}(\mathbf{x}))}{\sum_{j=1}^{K} \exp(s_{j}(\mathbf{x}))}$$
-- 소프트맥스 회귀 분류기의 예측: $$\hat{y}=\argmax_{k} \sigma(s(\mathbf{x}))_{k} = \argmax_{k}s_{k}(\mathbf{x}) = \argmax_{k} ((\theta^{(k)})^{T} \mathbf{x})$$
-- 크로스 엔트로피 비용함수로 추정된 클래스의 확률이 타겟 클래스에 얼마나 잘맞는지 측정  
+- 클래스$$k$$에 대한 소프트맥스 점수 
+  
+$$s_{k}(\mathbf{x})= (\theta^{(k)})^{T}\mathbf{x}$$  
+
+- 소프트맥스 함수: 
+  
+$$\hat{p}_{k} = \sigma(s(\mathbf{x}))_{k}=\frac{\exp(s_{k}(\mathbf{x}))}{\sum_{j=1}^{K} \exp(s_{j}(\mathbf{x}))}$$
+
+- 소프트맥스 회귀 분류기의 예측: 
+  
+$$\hat{y}=\argmax_{k} \sigma(s(\mathbf{x}))_{k} = \argmax_{k}s_{k}(\mathbf{x}) = \argmax_{k} ((\theta^{(k)})^{T} \mathbf{x})$$
+
+- 크로스 엔트로피 비용함수로 추정된 클래스의 확률이 타겟 클래스에 얼마나 잘맞는지 측정 
+  
 $$J(\Theta) = - \frac{1}{m} \sum_{i=1}^{m} \sum_{k=1}^{K} y^{(i)}_{k} \log(\hat{p}^{(i)}_{k})$$
 
 - 클래스 $$k$$에 대한 크로스엔트로피의 그레디언트 벡터:  
