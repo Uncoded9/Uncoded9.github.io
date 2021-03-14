@@ -481,13 +481,14 @@ $$\hat{p}_{k} = \sigma(s(\mathbf{x}))_{k}=\frac{\exp(s_{k}(\mathbf{x}))}{\sum_{j
 
 - 소프트맥스 회귀 분류기의 예측: 
   
-$$\hat{y}=\argmax_{k} \sigma(s(\mathbf{x}))_{k} = \argmax_{k}s_{k}(\mathbf{x}) = \argmax_{k} ((\theta^{(k)})^{T} \mathbf{x})$$
+$$\hat{y}=\argmax_{k} \sigma(s(\mathbf{x}))_{k} = \mathsf{argmax}_{k}s_{k}(\mathbf{x}) = \mathsf{argmax}_{k} ((\theta^{(k)})^{T} \mathbf{x})$$
 
 - 크로스 엔트로피 비용함수로 추정된 클래스의 확률이 타겟 클래스에 얼마나 잘맞는지 측정 
   
 $$J(\Theta) = - \frac{1}{m} \sum_{i=1}^{m} \sum_{k=1}^{K} y^{(i)}_{k} \log(\hat{p}^{(i)}_{k})$$
 
-- 클래스 $$k$$에 대한 크로스엔트로피의 그레디언트 벡터:  
+- 클래스 $$k$$에 대한 크로스엔트로피의 그레디언트 벡터:
+
 $$\nabla_{\theta^{(k)}} J(\Theta) = \frac{1}{m} \sum_{i=1}^{m}(\hat{p}^{(i)}_{k} - y^{(i)}_{k} ) \mathbf{x}^{(i)}$$
   
 - $$y^{(i)}_{k}$$는 i 번째 샘플이 클래스 k에 속하는지 여부로 0 또는 1의 값을 가짐
