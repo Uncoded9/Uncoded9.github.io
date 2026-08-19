@@ -3,13 +3,59 @@ title: 내 블로그
 theme: PaperMod
 paginate: 5
 
+locale: ko-KR
+defaultContentLanguage: ko
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+enableEmoji: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+pygmentsUseClasses: true
+
+minify:
+  disableXML: true
+
+taxonomies:
+  category: categories
+  tag: tags
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+menu:
+  main:
+    - name: 아카이브
+      url: archives/
+      weight: 1
+    - name: 검색
+      url: search/
+      weight: 2
+    - name: 태그
+      url: tags/
+      weight: 3
+
 params:
+  env: production
+  description: "내 블로그입니다."
+  author: Uncoded9
+
   defaultTheme: auto
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  ShowToc: true
+  disableSpecial1stPost: false
+  hidemeta: false
 
   homeInfoParams:
     Title: "안녕하세요 👋"
@@ -18,3 +64,30 @@ params:
   socialIcons:
     - name: github
       url: "https://github.com/Uncoded9"
+    - name: rss
+      url: "index.xml"
+
+  assets:
+    disableHLJS: true
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+
+services:
+  instagram:
+    disableInlineCSS: true
+  x:
+    disableInlineCSS: true
