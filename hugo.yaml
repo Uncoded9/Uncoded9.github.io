@@ -60,7 +60,7 @@ params:
   homeInfoParams:
     Title: "Ἀγεωμέτρητος μηδεὶς εἰσίτω"
     Content: |
-      ![The School of Athens](/images/school-of-athens.png)
+      ![Library](/images/library.jpg)
 
   assets:
     disableHLJS: true
