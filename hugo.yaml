@@ -46,7 +46,7 @@ params:
 
   defaultTheme: auto
   ShowReadingTime: true
-  ShowShareButtons: true
+  ShowShareButtons: false
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
@@ -61,12 +61,6 @@ params:
     Title: "Ἀγεωμέτρητος μηδεὶς εἰσίτω"
     Content: |
       ![The School of Athens](/images/school-of-athens.png)
-
-  socialIcons:
-    - name: github
-      url: "https://github.com/Uncoded9"
-    - name: rss
-      url: "index.xml"
 
   assets:
     disableHLJS: true
