@@ -29,13 +29,13 @@ outputs:
 
 menu:
   main:
-    - name: 아카이브
+    - name: Archive
       url: archives/
       weight: 1
-    - name: 검색
+    - name: Search
       url: search/
       weight: 2
-    - name: 태그
+    - name: Tags
       url: tags/
       weight: 3
 
