@@ -1,0 +1,20 @@
+baseURL: "https://Uncoded9.github.io/"
+title: 내 블로그
+theme: PaperMod
+paginate: 5
+
+params:
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+
+  homeInfoParams:
+    Title: "안녕하세요 👋"
+    Content: 여기는 제 블로그입니다.
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/Uncoded9"
