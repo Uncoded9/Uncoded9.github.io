@@ -59,7 +59,8 @@ params:
 
   homeInfoParams:
     Title: "Ἀγεωμέτρητος μηδεὶς εἰσίτω"
-    Content: 여기는 제 블로그입니다.
+    Content: |
+      ![The School of Athens](/images/school-of-athens.png)
 
   socialIcons:
     - name: github
