@@ -9,6 +9,7 @@ defaultContentLanguage: ko
 enableInlineShortcodes: true
 enableRobotsTXT: true
 enableEmoji: true
+enableGitInfo: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
